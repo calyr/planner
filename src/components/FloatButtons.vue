@@ -20,6 +20,7 @@ function onLoadRoute() {
     <button class="fab" @click="onPlannerReady">Planner Ready</button>
     <button class="fab" @click="onLoadRoute">Load Route</button>
   </div>
+  
 </template>
 
 <!-- <script lang="ts" setup>

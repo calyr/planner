@@ -1,4 +1,4 @@
-export type MessageType = "REQUEST" | "RESPONSE" | "EVENT";
+export enum MessageType { REQUEST = "request", RESPONSE = "response", EVENT = "event" };
 
 export enum StatusCode {
   OK = "OK",
