@@ -12,6 +12,11 @@ const currentTheme = bridgeStore.currentTheme;
 const isLoading = computed(() => {  
     return !settings.value;
 })
+
+const isLoadingPreferences = computed(()=> {
+    return !preferences.value;
+})
+
 </script>
 
 <template>
@@ -36,18 +41,17 @@ const isLoading = computed(() => {
                 <strong>Tema Actual (Getter):</strong> 
                 <span class="value">{{ currentTheme }}</span>
             </div>
+        </div>
 
-            <hr>
-
-            <h3>Preferencias de Usuario</h3>
+         <div v-if="isLoadingPreferences" class="loading-message">
+            Cargando Preferencias del Bridge... ⏳
+        </div>
+        <div v-else class="settings-content">
+            <h3>Configuración de Preferencias (Settings)</h3>
             <div class="setting-item">
-                <strong>Notificaciones:</strong> 
-                <span class="value">{{ preferences?.notificationsEnabled ? 'Activadas ✅' : 'Desactivadas ❌' }}</span>
-            </div>
-            <div class="setting-item">
-                <strong>Estilo de Mapa:</strong> 
-                <span class="value">{{ preferences?.mapStyle }}</span>
-            </div>
+                <strong>Json:</strong> 
+                <span class="value">{{ preferences }}</span>
+            </div>           
         </div>
     </div>
 </template>

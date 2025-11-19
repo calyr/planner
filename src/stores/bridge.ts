@@ -8,9 +8,30 @@ interface Settings {
     language: string; // 'es', 'en'
 }
 
-interface Preferences {
-    notificationsEnabled: boolean;
-    mapStyle: 'standard' | 'satellite';
+export interface Preferences {
+  visibility: VisibilityDto;
+  accessibility: AccessibilityDto;
+}
+
+
+export interface VisibilityDto {
+  services: VisibilityServicesDto[]; 
+  modes: VisibilityModesDto[];      
+}
+
+interface AccessibilityDto {
+  reducedMobility: boolean;
+  avoidStairs: boolean;
+}
+
+interface VisibilityServicesDto {
+  id: string;
+  visible: boolean;
+}
+
+interface VisibilityModesDto {
+  mode: string;
+  visible: boolean;
 }
 
 interface BridgeState {
