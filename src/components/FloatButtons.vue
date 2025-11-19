@@ -16,22 +16,12 @@ function onLoadRoute() {
 </script>
 
 <template>
-  <div> <!-- </div> class="floating-controls"> -->
+  <div>
     <button class="fab" @click="onPlannerReady">Planner Ready</button>
     <button class="fab" @click="onLoadRoute">Load Route</button>
   </div>
   
 </template>
-
-<!-- <script lang="ts" setup>
-const onNavigate = () => {
-  // aquí disparas la lógica para planificar ruta (ej: abrir modal, usar control directions)
-  window.dispatchEvent(new CustomEvent('plan-route'))
-}
-const onClear = () => {
-  window.dispatchEvent(new CustomEvent('clear-route'))
-}
-</script> -->
 
 <style scoped>
 .floating-controls {

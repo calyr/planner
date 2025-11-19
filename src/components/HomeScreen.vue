@@ -4,11 +4,11 @@ import { useRoute } from 'vue-router'
 import MapView from './MapView.vue'
 import FloatButtons from './FloatButtons.vue'
 import { bridgeAck, sendPlannerMessage, bridgeReady, bridgeSettings, bridgePreferences } from '../services/bridge'
-// 🚀 Recibir parámetro init de la URL
+import SettingsView from './SettingsView.vue'
+
 const route = useRoute()
 onMounted(() => {
   const initParam = route.query.init
-  console.log("Valor de init:", initParam)
 
   if (initParam) {
     try {
@@ -19,12 +19,9 @@ onMounted(() => {
     } catch (e) {
       console.error("Error decodificando init", e)
     }
-  }
-
-  
+  }  
 })
 
-// Métodos a ejecutar en orden
 function sendACK() {
         bridgeAck();
 }
@@ -41,7 +38,6 @@ function sendReady() {
   bridgeReady()
 }
 
-// Ejecutar todo en orden al iniciar la app
 async function iniciarApp() {
   console.log("App iniciada")
   sendACK()
@@ -59,6 +55,7 @@ function onMapReady(mapApi: any) {
   <div>
     <MapView @ready="onMapReady" />
     <FloatButtons />
+    <SettingsView/>
   </div>
 </template>
 

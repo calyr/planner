@@ -8,3 +8,6 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 CREATE .ENV file
 
 VITE_MAPBOX_TOKEN=token
+
+# Run dev mode
+npm run dev -- --host=0.0.0.0
